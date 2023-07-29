@@ -1,0 +1,35 @@
+/* Menu.module.css */
+.menuContainer {
+  text-align: center;
+  padding: 20px;
+}
+
+.menuTitle {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.menuButtons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.startGameButton,
+.loadGameButton {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.startGameButton:hover,
+.loadGameButton:hover {
+  background-color: #45a049;
+}

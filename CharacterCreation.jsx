@@ -24,12 +24,13 @@ const CharacterCreation = () => {
     mana: 10,
   });
   const [allocationPoints, setAllocationPoints] = useState(INITIAL_ALLOCATION_POINTS);
+  const [characterSheet, setCharacterSheet] = useState(null); // State to store the character's stats
 
   const navigate = useNavigate();
 
   // Get the chosen class and display it
   useEffect(() => {
-    const chosenClass = localStorage.getItem('chosenClass');
+    const chosenClass = localStorage.getItem('chosenClass') ?? 'None';
     console.log("Selected character class: " + chosenClass);
     setSelectedClass(chosenClass);
     updateAllocationPoints();
@@ -62,24 +63,17 @@ const CharacterCreation = () => {
       // Add other data as needed
     };
 
+    setCharacterSheet(characterStats); // Update the characterSheet state
     localStorage.setItem('characterStats', JSON.stringify(characterStats));
-    navigate("/MainMap");
+    navigate("/CharacterSheet");
   };
 
   // Get the image associated with the selected class
-  let classImage = null;
-  switch (selectedClass) {
-    case 'Warrior':
-      classImage = FighterImage;
-      break;
-    case 'Mage':
-      classImage = MagicUserImage;
-      break;
-    // Add cases for other classes with their respective images
-    default:
-      classImage = null;
-      break;
-  }
+  const classImage = {
+    Fighter: FighterImage,
+    'Magic User': MagicUserImage,
+    Thief: ThiefImage,
+  }[selectedClass];
 
   return (
     <div>
@@ -89,7 +83,7 @@ const CharacterCreation = () => {
       </div>
 
       <div className="character-image">
-        <img id="classImage" src={classImage} alt="Character Image" />
+        {classImage && <img id="classImage" src={classImage} alt="Character Image" />}
       </div>
 
       {/* Add JSX code for the attributes and buttons */}
