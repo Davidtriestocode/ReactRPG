@@ -65,7 +65,7 @@ const CharacterCreation = () => {
 
     setCharacterSheet(characterStats); // Update the characterSheet state
     localStorage.setItem('characterStats', JSON.stringify(characterStats));
-    navigate("/CharacterSheet");
+    navigate("/character-sheet");
   };
 
   // Get the image associated with the selected class

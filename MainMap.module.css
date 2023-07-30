@@ -1,0 +1,25 @@
+/* MainMap.module.css */
+.healthFill {
+  background-color: red;
+}
+
+.staminaFill {
+  background-color: green;
+}
+
+.manaFill {
+  background-color: blue;
+}
+
+/* Add this style to ensure status bars can grow and shrink */
+.statusBar {
+  display: flex;
+  width: 200px;
+  height: 20px;
+  background-color: #ccc;
+}
+
+/* Optional: Add some padding to the status text for better presentation */
+.statusText {
+  padding: 2px;
+}
