@@ -1,20 +1,27 @@
 /* MainMap.module.css */
 .healthFill {
-  background-color: red;
+  background-color: red !important;
 }
 
 .staminaFill {
-  background-color: green;
+  background-color: green !important;
 }
 
 .manaFill {
-  background-color: blue;
+  background-color: blue !important;
 }
 
 /* Add this style to ensure status bars can grow and shrink */
+.statusContainer {
+  display: flex; /* Use flexbox to display the bars side by side */
+  justify-content: space-between; /* Add space between bars */
+  width: 600px; /* Set the container width to accommodate three bars */
+  margin: 10px auto; /* Center the container horizontally and add some margin */
+}
+
 .statusBar {
   display: flex;
-  width: 200px;
+  flex: 1; /* Allow each bar to grow and take equal space */
   height: 20px;
   background-color: #ccc;
 }
@@ -22,4 +29,27 @@
 /* Optional: Add some padding to the status text for better presentation */
 .statusText {
   padding: 2px;
+}
+
+/* Add this style to the game map container to make the image fit the screen */
+.gameMapContainer {
+  position: relative;
+  max-width: 100%;
+  height: 100vh; /* Adjust the height as needed */
+  overflow: hidden;
+}
+
+/* Add this style to the game map image */
+.gameMapImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none; /* To prevent interaction with the map image */
+}
+
+/* Adjust the player image size as needed */
+.playerImage {
+  width: 40px;
+  height: 40px;
+  position: absolute;
 }

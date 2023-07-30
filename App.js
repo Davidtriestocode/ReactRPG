@@ -5,6 +5,7 @@ import ChooseClass from './ChooseClass';
 import CharacterCreation from './CharacterCreation';
 import CharacterSheet from './CharacterSheet';
 import MainMap from './MainMap'; // Import the GameMap component
+import Gameplay from './Gameplay';
 import Monsters from './Monsters'; 
 
 const App = () => {
