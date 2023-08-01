@@ -1,47 +1,52 @@
 /* MainMap.module.css */
-/* D- 
-Changed the xFill styles to display properly with the text ontop.
-Added position: absolute so the text does not move relative to other things in the container.
-Made the height 100% if not it makes the height 0 and shows nothing*/
+/* Refactor to use flexbox for positioning */
+
+/* Add this style to ensure status bars can grow and shrink */
+.statusBarsContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  margin: 0 auto; /* Center the status bars container horizontally */
+}
+
+/* Style for each status bar */
+.statusBar {
+  flex: 1;
+  background-color: #ccc;
+  height: 20px;
+  position: relative;
+}
+
+/* Styles for the status bar fill */
 .healthFill {
   position: absolute;
   height: 100%;
   background-color: red;
+  width: 0; /* Initially set the width to 0, it will be updated dynamically */
 }
 
 .staminaFill {
   position: absolute;
   height: 100%;
   background-color: green;
+  width: 0; /* Initially set the width to 0, it will be updated dynamically */
 }
 
 .manaFill {
   position: absolute;
   height: 100%;
   background-color: blue;
-}
-
-/* Add this style to ensure status bars can grow and shrink */
-/* D- 
-added position: relative for now, this can be changed to make it fixed or however might fit the ui best.
-removed the display: flex as it made thetext appear after the bar and not stay in the middle.*/
-.statusBar {
-  position: relative;
-  background-color: #ccc;
-  width: 200px;
-  height: 20px;
+  width: 0; /* Initially set the width to 0, it will be updated dynamically */
 }
 
 /* Optional: Add some padding to the status text for better presentation */
-/* D- 
-Added position: absolute so the text does not move relative to other things in the container.
-Added width: 100% and text-align: center so the text is centered*/
 .statusText {
   position: absolute;
   width: 100%;
   text-align: center;
   padding: 2px;
 }
+
 /* Add this style to the game map container to make the image fit the screen */
 .gameMapContainer {
   position: relative;
@@ -63,4 +68,21 @@ Added width: 100% and text-align: center so the text is centered*/
   width: 40px;
   height: 40px;
   position: absolute;
+}
+
+/* Add this style to position the inventory button at the top */
+.inventoryMenu {
+  position: absolute;
+  top: 0px; /* Adjust the top position as needed */
+  left: 20px; /* Adjust the left position as needed */
+  z-index: 999; /* Ensure the button appears above other elements */
+}
+
+/* Style the inventory button */
+.inventoryMenu button {
+  background-color: #ccc;
+  padding: 8px 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
 }

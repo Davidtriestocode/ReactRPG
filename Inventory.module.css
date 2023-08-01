@@ -1,0 +1,117 @@
+/* inventory.module.css */
+
+/* Set the menu bar at the top of the inventory page */
+.menuBarContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f0f0f0;
+  padding: 10px;
+}
+
+.menuBarContainer nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Center the menu items horizontally */
+}
+
+.menuBarContainer nav li {
+  margin: 0 10px; /* Add spacing between menu items (optional) */
+}
+
+/* Style the menu buttons */
+.menuBarContainer nav button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* Center the inventory section at the bottom of the inventory page */
+.inventoryWrapper {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 40px; /* Add padding to the bottom to avoid overlapping with the slots */
+}
+
+.inventoryContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.inventorySlots {
+  display: flex;
+  justify-content: center;
+}
+
+/* inventory.module.css */
+
+/* Set the menu bar at the top of the inventory page */
+.menuBarContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f0f0f0;
+  padding: 10px;
+}
+
+.menuBarContainer nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Center the menu items horizontally */
+}
+
+.menuBarContainer nav li {
+  margin: 0 10px; /* Add spacing between menu items (optional) */
+}
+
+/* Style the menu buttons */
+.menuBarContainer nav button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* Center the inventory section at the bottom of the inventory page */
+.inventoryWrapper {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 40px; /* Add padding to the bottom to avoid overlapping with the slots */
+}
+
+.inventoryContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.inventorySlots {
+  display: flex;
+  justify-content: center;
+}
+
+/* Wrapper for the Equipment section */
+.equipmentWrapper {
+  position: fixed;
+  top: 10%; /* Adjust this value to control the vertical position of the Equipment window */
+  right: 10%; /* Adjust this value to control the horizontal position of the Equipment window */
+  height: 550%; /* Adjust this value to set the height of the Equipment window */
+  transform: translateY(-100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

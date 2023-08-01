@@ -1,0 +1,35 @@
+/* Equipment.module.css */
+.equipmentContainer {
+  /* Your existing styles for the equipment container */
+}
+
+.characterImage {
+  /* Your existing styles for the character image */
+}
+
+.equipmentSlots {
+  display: flex;
+  flex-wrap: wrap; /* Allow the slots to wrap to the next row if needed */
+  justify-content: space-between; /* Distribute slots evenly across the container */
+}
+
+.equipmentSlot {
+  width: 100px; /* Set the width of each slot */
+  height: 100px; /* Set the height of each slot */
+  border: 1px solid #ccc; /* Add a border to create a visible box */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px; /* Add some space around slots */
+}
+
+.equipmentSlot p {
+  margin: 5px 0; /* Add some spacing for the slot name */
+}
+
+.equipmentSlot img {
+  max-width: 60px; /* Limit the width of the equipped item image */
+  max-height: 60px; /* Limit the height of the equipped item image */
+  /* Add additional styles for the item image if needed */
+}

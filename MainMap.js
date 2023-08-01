@@ -1,10 +1,15 @@
+// MainMap.js
 import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import GameMapImage from './img/GameMap.jpg';
-import PlayerImage from './img/RangerWalk.gif';
-import PlayerMovement from './Gameplay'; // Import the PlayerMovement component
-import styles from './css/MainMap.module.css'; // Import the CSS module
+import PlayerMovement from './Gameplay';
+import MenuBar from './MenuBar'; // Import the MenuBar component
+import styles from './css/MainMap.module.css';
 
-const GameMap = () => {
+const MainMap = () => {
+  const mapWidth = 1000; // Adjust the width of the game map as needed
+  const mapHeight = 800; // Adjust the height of the game map as needed
+
   // Refs for status bars
   const healthFillRef = useRef(null);
   const staminaFillRef = useRef(null);
@@ -17,13 +22,9 @@ const GameMap = () => {
   const updateStatusBars = () => {
     const characterStats = JSON.parse(localStorage.getItem('characterStats'));
 
-    const maxHealthPoints = characterStats.maxHealth;
-    const maxStaminaPoints = characterStats.maxStamina;
-    const maxManaPoints = characterStats.maxMana;
-
-    const currentHealthPercentage = (characterStats.health / maxHealthPoints) * 100;
-    const currentStaminaPercentage = (characterStats.stamina / maxStaminaPoints) * 100;
-    const currentManaPercentage = (characterStats.mana / maxManaPoints) * 100;
+    const currentHealthPercentage = (characterStats.health / characterStats.maxHealth) * 100;
+    const currentStaminaPercentage = (characterStats.stamina / characterStats.maxStamina) * 100;
+    const currentManaPercentage = (characterStats.mana / characterStats.maxMana) * 100;
 
     healthFillRef.current.style.width = `${currentHealthPercentage}%`;
     staminaFillRef.current.style.width = `${currentStaminaPercentage}%`;
@@ -42,19 +43,36 @@ const GameMap = () => {
   // State for player position
   const [playerPosition, setPlayerPosition] = useState({ x: 100, y: 100 });
 
-  // Function to handle player movement
+  // Function to handle player movement with boundary check
   const handlePlayerMovement = (direction) => {
     // Adjust the movement step as needed
     const step = 10;
-    setPlayerPosition((prevPosition) => ({
-      x: prevPosition.x + direction.x * step,
-      y: prevPosition.y + direction.y * step,
-    }));
+
+    // Calculate the new position after movement
+    const newPosition = {
+      x: playerPosition.x + direction.x * step,
+      y: playerPosition.y + direction.y * step,
+    };
+
+    // Check boundaries to prevent the character from moving off the map
+    if (
+      newPosition.x >= 0 &&
+      newPosition.x <= mapWidth &&
+      newPosition.y >= 0 &&
+      newPosition.y <= mapHeight
+    ) {
+      setPlayerPosition(newPosition);
+    }
   };
 
-  // Call PlayerMovement component and pass the necessary props
+  // Use useNavigate to get the navigate function
+  const navigate = useNavigate();
+
   return (
     <div>
+      {/* Display the menu bar on top */}
+      <MenuBar />
+
       <div className={styles.statusContainer}>
         {/* Status bars */}
         <div id="healthBar" className={styles.statusBar}>
@@ -74,9 +92,14 @@ const GameMap = () => {
       <img src={GameMapImage} alt="Game Map" style={{ width: '100%', height: '100%' }} />
 
       {/* Render the player character at the specified position */}
-      <PlayerMovement handlePlayerMovement={handlePlayerMovement} playerPosition={playerPosition} />
+      <PlayerMovement
+        handlePlayerMovement={handlePlayerMovement}
+        playerPosition={playerPosition}
+        mapWidth={mapWidth}
+        mapHeight={mapHeight}
+      />
     </div>
   );
 };
 
-export default GameMap;
+export default MainMap;

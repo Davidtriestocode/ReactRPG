@@ -1,0 +1,17 @@
+/* Adjust the size of the inventory slot */
+.inventorySlot {
+  width: 40px; /* Set the desired width */
+  height: 40px; /* Set the desired height */
+  border: 1px solid #ccc;
+  overflow: hidden; /* Hide any overflow content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Make the item image fit the size of the slot */
+.inventorySlot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio and cover the slot */
+}
