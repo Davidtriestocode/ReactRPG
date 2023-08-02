@@ -75,12 +75,9 @@ const CharacterCreation = () => {
     Thief: ThiefImage,
   }[selectedClass];
 
-  return (
+ return (
     <div>
-      <h1>Character Creation Screen</h1>
-      <div id="classContainer">
-        <h2>Selected Class: {selectedClass}</h2>
-      </div>
+      <h1>Choose Your Stats</h1>
 
       <div className="character-image">
         {classImage && <img id="classImage" src={classImage} alt="Character Image" />}
@@ -116,5 +113,6 @@ const AttributeInput = ({ attribute, value, onChange, min, max }) => {
     </div>
   );
 };
+
 
 export default CharacterCreation;
