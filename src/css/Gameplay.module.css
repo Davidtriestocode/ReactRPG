@@ -1,0 +1,39 @@
+:root {
+  --pixel-size: 1; /* Set a default value, such as 6 pixels */
+}
+
+/* Define the character container */
+.character-container {
+  width: calc(32px * var(--pixel-size));
+  height: calc(32px * var(--pixel-size));
+  overflow: hidden;
+  position: relative;
+  margin: 4em auto;
+}
+
+/* Define the character animation */
+.character-animation img {
+  animation: moveSpritesheet 1s steps(10) infinite;
+  width: calc(128px * var(--pixel-size));
+  position: absolute;
+}
+
+/* Define the character shadow */
+.character-shadow {
+  position: absolute;
+  width: calc(32px * var(--pixel-size));
+  height: calc(32px * var(--pixel-size));
+}
+
+.pixelart {
+  image-rendering: pixelated;
+}
+
+@keyframes moveSpritesheet {
+  from {
+    left: 0;
+  }
+  to {
+    left: calc(-128px * var(--pixel-size));
+  }
+}

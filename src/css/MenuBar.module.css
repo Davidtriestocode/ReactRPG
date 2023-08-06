@@ -1,0 +1,19 @@
+/* MenuBar.module.css */
+nav {
+  display: flex;
+  justify-content: center; /* Center the menu items horizontally */
+  align-items: center; /* Center the menu items vertically */
+  background-color: #f0f0f0; /* Background color for the menu bar */
+  padding: 10px 0; /* Add some padding at the top and bottom */
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin: 0 10px; /* Add some space between the menu items */
+}
