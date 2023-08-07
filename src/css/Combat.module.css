@@ -1,0 +1,26 @@
+/* Combat.css */
+
+.combat-container {
+  text-align: center;
+  margin: 20px;
+}
+
+.character-image {
+  margin-top: 20px;
+}
+
+.button-container {
+  margin-top: 20px;
+}
+
+.button-container button {
+  margin: 5px;
+}
+
+.combat-log {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+}

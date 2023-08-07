@@ -1,10 +1,11 @@
-// MainMap.js
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import GameMapImage from './img/GameMap.jpg';
 import PlayerMovement from './Gameplay';
 import MenuBar from './MenuBar'; // Import the MenuBar component
 import styles from './css/MainMap.module.css';
+import { spawnMonsters } from './Monsters'; // Import the spawnMonsters function
+import TownImage from './img/TownSquare2.jpg';
 
 const MainMap = () => {
   const mapWidth = 1000; // Adjust the width of the game map as needed
@@ -68,10 +69,41 @@ const MainMap = () => {
   // Use useNavigate to get the navigate function
   const navigate = useNavigate();
 
+  // State for monsters
+  const [monsters, setMonsters] = useState([]);
+
+useEffect(() => {
+  // Define the number of monsters and locations
+  const numberOfMonsters = 10;
+
+  // Define the range for valid x and y coordinates
+  const validXRange = [0, mapWidth - 40]; // Subtracting the monster image width
+  const validYRange = [0, mapHeight - 40]; // Subtracting the monster image height
+
+  // Spawn monsters within the valid ranges
+  const newMonsters = spawnMonsters(numberOfMonsters, Array.from({ length: numberOfMonsters }, () => ({
+    location: {
+      x: Math.random() * (validXRange[1] - validXRange[0]) + validXRange[0],
+      y: Math.random() * (validYRange[1] - validYRange[0]) + validYRange[0],
+    }
+  })));
+
+  setMonsters(newMonsters);
+}, []);
+
   return (
     <div>
       {/* Display the menu bar on top */}
       <MenuBar />
+<div
+  style={{
+    position: 'absolute',
+    top: 285, // Set the desired y-coordinate
+    left: 435, // Set the desired x-coordinate
+  }}
+>
+  <img src={TownImage} alt="Town" className={styles.townImage} />
+</div>
 
       <div className={styles.statusContainer}>
         {/* Status bars */}
@@ -98,6 +130,20 @@ const MainMap = () => {
         mapWidth={mapWidth}
         mapHeight={mapHeight}
       />
+
+      {/* Render monsters at their specified locations */}
+      {monsters.map((monster, index) => (
+        <div
+          key={index}
+          style={{
+            position: 'absolute',
+            top: monster.location.y,
+            left: monster.location.x,
+          }}
+        >
+          <img src={monster.image} alt={monster.name} />
+        </div>
+      ))}
     </div>
   );
 };

@@ -9,7 +9,7 @@ const MIN_ATTRIBUTE_VALUE = 10;
 const MAX_ATTRIBUTE_VALUE = 100;
 const INITIAL_ALLOCATION_POINTS = 150;
 
-const CharacterCreation = () => {
+const CharacterCreation = ({ initialAllocationPoints }) => {
   const [selectedClass, setSelectedClass] = useState('None');
   const [attributes, setAttributes] = useState({
     strength: 10,
@@ -75,7 +75,7 @@ const CharacterCreation = () => {
     Thief: ThiefImage,
   }[selectedClass];
 
- return (
+  return (
     <div>
       <h1>Choose Your Stats</h1>
 
@@ -113,6 +113,5 @@ const AttributeInput = ({ attribute, value, onChange, min, max }) => {
     </div>
   );
 };
-
 
 export default CharacterCreation;

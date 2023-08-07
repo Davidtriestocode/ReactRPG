@@ -1,4 +1,9 @@
 // Monsters.js
+import React from 'react';
+import Goblin from './img/Goblin.jpg';
+import Bandit from './img/Bandit.jpg';
+import Minotaur from './img/Minotaur.jpg';
+
 const monsters = [
   {
     name: "Goblin",
@@ -7,7 +12,7 @@ const monsters = [
     endurance: 3,
     agility: 3,
     experience: 50,
-    image: "Goblin.jpg" 
+    image: Goblin // Use the imported image variable directly
   },
   {
     name: "Bandit",
@@ -16,7 +21,7 @@ const monsters = [
     endurance: 5,
     agility: 5,
     experience: 100,
-    image: "Bandit.jpg" 
+    image: Bandit // Use the imported image variable directly
   },
   {
     name: "Minotaur",
@@ -25,8 +30,38 @@ const monsters = [
     endurance: 12,
     agility: 12,
     experience: 200,
-    image: "Minotaur.jpg" 
+    image: Minotaur // Use the imported image variable directly
   }
 ];
 
-export default monsters;
+// Function to spawn X number of random monsters in X locations
+const spawnMonsters = (numberOfMonsters, locations) => {
+  const spawnedMonsters = [];
+
+  for (let i = 0; i < numberOfMonsters; i++) {
+    const randomMonsterIndex = Math.floor(Math.random() * monsters.length);
+    const randomLocationIndex = Math.floor(Math.random() * locations.length);
+
+    const randomMonster = { ...monsters[randomMonsterIndex], location: locations[randomLocationIndex] };
+    spawnedMonsters.push(randomMonster);
+  }
+
+  return spawnedMonsters;
+};
+
+// Export the getMonsterStats function
+ const getMonsterStats = (monsterName) => {
+  const monster = monsters.find((m) => m.name === monsterName);
+  if (monster) {
+    return {
+      health: monster.health,
+      attack: monster.attack,
+      // Add other monster stats here
+    };
+  } else {
+    throw new Error(`Monster with name ${monsterName} not found.`);
+  }
+};
+
+
+export { monsters, spawnMonsters, getMonsterStats };

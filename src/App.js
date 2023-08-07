@@ -16,6 +16,8 @@ import MenuBar from './MenuBar';
 import SelectedItemWindow from './SelectedItemWindow';
 import Equipment from './Equipment';
 import constants from './constants';
+import LevelUp from './LevelUp';
+import Combat from './Combat'
 
 const App = () => {
   return (
@@ -25,6 +27,8 @@ const App = () => {
         <Route path="/choose-class" element={<ChooseClass />} />
         <Route path="/character-creation" element={<CharacterCreation />} />
         <Route path="/character-sheet" element={<CharacterSheet />} />
+        <Route path="/combat" element={<Combat />} />
+
         {/* Wrap the Inventory component with DndProvider */}
         <Route path="/inventory" element={<DndProvider backend={HTML5Backend}><Inventory /></DndProvider>} />
         {/* Wrap the Equipment component with DndProvider */}

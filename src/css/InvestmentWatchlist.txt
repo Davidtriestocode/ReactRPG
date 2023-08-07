@@ -10,3 +10,5 @@ RVF
 INJ
 cosmos
 Cell coin
+
+Hilo, unibot, pepe, RLB

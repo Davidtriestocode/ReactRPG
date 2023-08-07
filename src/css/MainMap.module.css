@@ -86,3 +86,10 @@
   border: none;
   cursor: pointer;
 }
+
+
+/* Add this style to make the TownImage smaller */
+.townImage {
+  width: 60px; /* Adjust the width as needed */
+  height: 60px; /* Adjust the height as needed */
+}

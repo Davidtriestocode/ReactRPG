@@ -4,6 +4,8 @@ import FighterImage from './img/Fighter.jpg';
 import MagicUserImage from './img/MagicUser.jpg';
 import ThiefImage from './img/Thief.jpg';
 
+const experience = 0;
+
 const CharacterSheet = () => {
   // Use the navigate hook
   const navigate = useNavigate();
