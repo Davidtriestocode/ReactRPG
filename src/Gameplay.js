@@ -1,35 +1,44 @@
 import React, { useEffect, useState } from 'react';
 import styles from './css/Gameplay.module.css';
-import AnimatedRanger from './img/AnimatedRanger.png'
+import AnimatedRanger from './img/AnimatedRanger.png';
 
-const Gameplay = () => {
+const Gameplay = ({ initialPosition, mapWidth, mapHeight }) => {
   // State to track character position and movement
-  const [characterPosition, setCharacterPosition] = useState({ x: 0, y: 0 });
+  const [characterPosition, setCharacterPosition] = useState(initialPosition);
   const [isWalking, setIsWalking] = useState(false);
 
-  // Function to handle character movement
-  const handleMovement = (direction) => {
-    setIsWalking(true);
 
-    // Update the character's position based on the movement direction
-    switch (direction) {
-      case 'up':
-        setCharacterPosition((prevPosition) => ({ ...prevPosition, y: prevPosition.y - 10 }));
-        break;
-      case 'down':
-        setCharacterPosition((prevPosition) => ({ ...prevPosition, y: prevPosition.y + 10 }));
-        break;
-      case 'left':
-        setCharacterPosition((prevPosition) => ({ ...prevPosition, x: prevPosition.x - 32 }));
-        break;
-      case 'right':
-        setCharacterPosition((prevPosition) => ({ ...prevPosition, x: prevPosition.x + 32 }));
-        break;
-      default:
-        setIsWalking(false);
-        break;
-    }
-  };
+const handleMovement = (direction) => {
+  setIsWalking(true);
+
+  // Calculate the new position based on the movement direction
+  let newPosition = { ...characterPosition };
+
+  switch (direction) {
+    case 'up':
+      newPosition.y -= 10;
+      break;
+    case 'down':
+      newPosition.y += 10;
+      break;
+    case 'left':
+      newPosition.x -= 32;
+      break;
+    case 'right':
+      newPosition.x += 32;
+      break;
+    default:
+      setIsWalking(false);
+      break;
+  }
+
+  // Check and restrict the character's position within the map boundaries
+  newPosition.x = Math.max(0, Math.min(newPosition.x, mapWidth - 32));
+  newPosition.y = Math.max(0, Math.min(newPosition.y, mapHeight - 10));
+
+  // Update the character's position
+  setCharacterPosition(newPosition);
+};
 
   // Function to handle when the character stops walking
   const handleStopWalking = () => {

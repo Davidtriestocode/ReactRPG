@@ -63,12 +63,7 @@
   pointer-events: none; /* To prevent interaction with the map image */
 }
 
-/* Adjust the player image size as needed */
-.playerImage {
-  width: 40px;
-  height: 40px;
-  position: absolute;
-}
+
 
 /* Add this style to position the inventory button at the top */
 .inventoryMenu {
