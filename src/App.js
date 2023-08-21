@@ -17,7 +17,11 @@ import SelectedItemWindow from './SelectedItemWindow';
 import Equipment from './Equipment';
 import constants from './constants';
 import LevelUp from './LevelUp';
-import Combat from './Combat'
+import Combat from './Combat';
+import GameObject from './GameObject';
+import Person from './Person'
+import Sprite from './Sprite';
+import DirectionInput from './DirectionInput'
 
 const App = () => {
   return (

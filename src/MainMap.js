@@ -5,13 +5,12 @@ import Gameplay from './Gameplay'; // Update the import
 import MenuBar from './MenuBar'; // Import the MenuBar component
 import styles from './css/MainMap.module.css';
 import { spawnMonsters } from './Monsters'; // Import the spawnMonsters function
+import GameObject from './GameObject'; // Import the GameObject component
 
 const MainMap = () => {
-  const mapWidth = 1000; // Adjust the width of the game map as needed
-  const mapHeight = 800; // Adjust the height of the game map as needed
-
-// Set the player's starting position
-  const initialPlayerPosition = { x: 100, y: 100 }; // Customize this as needed
+  const mapWidth = 1000;
+  const mapHeight = 800;
+  const initialPlayerPosition = { x: 100, y: 100 };
 
   // Refs for status bars
   const healthFillRef = useRef(null);
@@ -86,13 +85,6 @@ const MainMap = () => {
 
       <img src={GameMapImage} alt="Game Map" style={{ width: '100%', height: '100%' }} />
 
-    {/* Render the player character at the specified position */}
-      <Gameplay
-        initialPosition={initialPlayerPosition}
-        mapWidth={mapWidth}
-        mapHeight={mapHeight}
-      />
-
       {/* Render monsters at their specified locations */}
       {monsters.map((monster, index) => (
         <div
@@ -106,6 +98,9 @@ const MainMap = () => {
           <img src={monster.image} alt={monster.name} />
         </div>
       ))}
+
+      {/* Render the player character */}
+      <GameObject x={initialPlayerPosition.x} y={initialPlayerPosition.y} direction="down" />
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { DndProvider } from 'react-dnd';
-import { useDrop } from 'react-dnd';
+import { useDrag, useDrop, DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import InventorySlot from './InventorySlot';
 import StarterSword from './img/StarterSword.jpg';
