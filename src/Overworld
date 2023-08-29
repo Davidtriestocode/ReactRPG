@@ -1,0 +1,63 @@
+import React, { useEffect, useRef, useState } from 'react';
+import DirectionInput from './DirectionInput'; // Import your DirectionInput component here
+import OverworldMap from './OverworldMap'; // Import your OverworldMap component here
+
+const Overworld = ({ element }) => {
+  const [map, setMap] = useState(null);
+  const canvasRef = useRef(null);
+  const ctxRef = useRef(null);
+
+  // Initialize the map, direction input, and start the game loop
+  useEffect(() => {
+    // Initialize the canvas and context
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    ctxRef.current = ctx;
+
+    // Create a new OverworldMap instance
+    const newMap = new OverworldMap(window.OverworldMaps.DemoRoom);
+    setMap(newMap);
+
+    // Initialize the DirectionInput component
+    const directionInput = new DirectionInput();
+    directionInput.init();
+
+    // Start the game loop
+    const startGameLoop = () => {
+      const step = () => {
+        // Clear the canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw Lower layer
+        newMap.drawLowerImage(ctx);
+
+        // Draw Game Objects
+        Object.values(newMap.gameObjects).forEach((object) => {
+          object.update({
+            arrow: directionInput.direction,
+          });
+          object.sprite.draw(ctx);
+        });
+
+        // Draw Upper layer
+        newMap.drawUpperImage(ctx);
+
+        requestAnimationFrame(step);
+      };
+      step();
+    };
+
+    startGameLoop();
+  }, []);
+
+  return (
+    <canvas
+      className="game-canvas"
+      ref={canvasRef}
+      width={map ? map.width : 0}
+      height={map ? map.height : 0}
+    ></canvas>
+  );
+};
+
+export default Overworld;

@@ -9,19 +9,19 @@ import ChooseClass from './ChooseClass';
 import CharacterCreation from './CharacterCreation';
 import CharacterSheet from './CharacterSheet';
 import MainMap from './MainMap'; // Import the GameMap component
-import Gameplay from './Gameplay';
 import Monsters from './Monsters'; 
 import Inventory from './Inventory';
 import MenuBar from './MenuBar';
 import SelectedItemWindow from './SelectedItemWindow';
 import Equipment from './Equipment';
-import constants from './constants';
+import utils from './utils';
 import LevelUp from './LevelUp';
 import Combat from './Combat';
 import GameObject from './GameObject';
 import Person from './Person'
 import Sprite from './Sprite';
 import DirectionInput from './DirectionInput'
+import OverworldMap from './OverworldMap'
 
 const App = () => {
   return (
@@ -37,7 +37,7 @@ const App = () => {
         <Route path="/inventory" element={<DndProvider backend={HTML5Backend}><Inventory /></DndProvider>} />
         {/* Wrap the Equipment component with DndProvider */}
         <Route path="/equipment" element={<DndProvider backend={HTML5Backend}><Equipment /></DndProvider>} />
-        <Route path="/main-map" element={<MainMap />} /> {/* Add this route for the GameMap */}
+        <Route path="/overworld-map" element={<OverworldMap />} /> {/* Add this route for the GameMap */}
       </Routes>
     </Router>
   );
