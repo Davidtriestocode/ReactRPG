@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './css/InventorySlot.module.css';
 import { useDrag, useDrop } from 'react-dnd';
-import { ItemTypes } from './constants';
+import { ItemTypes } from './utils';
 
 const InventorySlot = ({ item, setSelectedItem, inventoryItems, setInventoryItems }) => {
   const handleItemClick = () => {

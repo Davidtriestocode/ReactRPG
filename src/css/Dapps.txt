@@ -10,12 +10,30 @@ https://matcha.xyz/tokens/ethereum/eth
 https://app.eigenlayer.xyz/
 https://www.pocketuniverse.app/ Insurance and protection from hacks
 https://www.nexus-gaming.io/
+https://app.odos.xyz/
+https://omni-x.io/
+https://app.vertexprotocol.com/
+https://app.r3vl.xyz/bridge
+https://app.slingshot.finance/portfolio
+
+https://mail.dmail.ai/
+
+Starknet
+https://starkgate.starknet.io/
 
 Linea
 
 - https://syncswap.xyz/swap
 - https://app.horizondex.io/swap
 - https://echodex.io/swap
+
+Zksync
+http://Rhino.fi
+Mute https://app.mute.io
+Nexon https://app.nexon.finance
+Spacefi https://app.spacefi.io
+syncswap.xyz
+Pinata.cloud
 
 Tools
 https://banterbubbles.com/

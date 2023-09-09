@@ -1,21 +1,22 @@
 import React from 'react';
 import Sprite from './Sprite';
-import AnimatedRanger from './img/AnimatedRanger.png';
 
-const GameObject = ({ x = 0, y = 0, direction = "down" }) => {
-  // Define an animation for the character based on their direction
-  const animations = {
-    'idle-down': [[0, 0]], // Idle animation (facing down)
-    'walk-down': Array.from({ length: 10 }, (_, index) => [index, 1]), // Walking animation (facing down)
-  };
+const GameObject = ({ x = 0, y = 0, direction = "down", spriteSrc }) => {
+  // Check if a sprite source is provided
+  if (!spriteSrc) {
+    return null; // If no sprite source is provided, return null (or handle it differently)
+  }
+
+  // Define an empty animations object by default
+  const animations = {};
 
   return (
     <Sprite
       config={{
-        src: AnimatedRanger, // Path to your character's sprite image
-        animations: animations, // Provide the animations object
+        src: spriteSrc, // Path to your character's sprite image
+        animations: animations, // Provide the animations object (empty in this case)
         gameObject: { x, y },
-        currentAnimation: `idle-${direction}`, // You can change this to 'walk-down' when character is walking
+        currentAnimation: `idle-${direction}`, // You can change this to 'walk-down' when the character is walking
       }}
     />
   );

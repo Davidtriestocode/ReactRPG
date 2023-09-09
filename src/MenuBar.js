@@ -23,7 +23,7 @@ const MenuBar = () => {
       <nav className={styles.menuBar}>
         <ul className={styles.menuList}>
           <li>
-            <MenuButton path="/main-map" label="Main Map" />
+            <MenuButton path="/overworld-map" label="Main Map" />
           </li>
           <li>
             <MenuButton path="/inventory" label="Inventory" />

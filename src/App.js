@@ -8,7 +8,6 @@ import Menu from './Menu';
 import ChooseClass from './ChooseClass';
 import CharacterCreation from './CharacterCreation';
 import CharacterSheet from './CharacterSheet';
-import MainMap from './MainMap'; // Import the GameMap component
 import Monsters from './Monsters'; 
 import Inventory from './Inventory';
 import MenuBar from './MenuBar';
@@ -22,6 +21,10 @@ import Person from './Person'
 import Sprite from './Sprite';
 import DirectionInput from './DirectionInput'
 import OverworldMap from './OverworldMap'
+import Overworld from './Overworld'
+import StatusBars from './StatusBars'; // Import the StatusBar component
+import GameContext from './GameContext'
+import GameProvider from './GameProvider'
 
 const App = () => {
   return (
@@ -38,6 +41,8 @@ const App = () => {
         {/* Wrap the Equipment component with DndProvider */}
         <Route path="/equipment" element={<DndProvider backend={HTML5Backend}><Equipment /></DndProvider>} />
         <Route path="/overworld-map" element={<OverworldMap />} /> {/* Add this route for the GameMap */}
+        <Route path="/overworld" element={<Overworld />} /> {/* Add this route for the GameMap */}
+
       </Routes>
     </Router>
   );
@@ -45,7 +50,9 @@ const App = () => {
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <GameProvider>
+      <App />
+    </GameProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

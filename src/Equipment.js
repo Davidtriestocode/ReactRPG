@@ -4,7 +4,7 @@ import FighterImage from './img/Fighter.jpg';
 import MagicUserImage from './img/MagicUser.jpg';
 import ThiefImage from './img/Thief.jpg';
 import { useDrop } from 'react-dnd';
-import { ItemTypes } from './constants';
+import { ItemTypes } from './utils';
 
 const Equipment = ({ equipmentSlots, setEquipmentSlots, handleDropToEquipment }) => {
   const selectedClass = localStorage.getItem('chosenClass');

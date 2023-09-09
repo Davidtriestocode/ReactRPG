@@ -6,3 +6,4 @@ const utils = {
     return n * 16;
   }
 }
+export default utils

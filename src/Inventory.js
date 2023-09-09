@@ -10,7 +10,7 @@ import MenuBar from './MenuBar';
 import SelectedItemWindow from './SelectedItemWindow';
 import Equipment from './Equipment';
 import styles from './css/Inventory.module.css';
-import { ItemTypes } from './constants';
+import { ItemTypes } from './utils';
 
 const Inventory = () => {
   const [selectedItem, setSelectedItem] = useState(null);
