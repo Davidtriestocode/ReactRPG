@@ -23,8 +23,9 @@ import DirectionInput from './DirectionInput'
 import OverworldMap from './OverworldMap'
 import Overworld from './Overworld'
 import StatusBars from './StatusBars'; // Import the StatusBar component
-import GameContext from './GameContext'
-import GameProvider from './GameProvider'
+import GameContext from './GameContext';
+import GameProvider from './GameProvider';
+
 
 const App = () => {
   return (
@@ -48,12 +49,14 @@ const App = () => {
   );
 };
 
+
 ReactDOM.render(
   <React.StrictMode>
+    {/* Wrap your entire app with GameProvider */}
     <GameProvider>
       <App />
     </GameProvider>
   </React.StrictMode>,
   document.getElementById('root')
-);
+  )
 export default App;
