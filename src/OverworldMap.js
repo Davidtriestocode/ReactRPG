@@ -8,9 +8,8 @@ import { spawnMonsters } from './Monsters';
 const mapWidth = 600;
 const mapHeight = 800;
 
-const OverworldMap = ({ config }) => {
-  const { monsters, setMonsters } = useContext(GameContext);
-  const [map, setMap] = useState(null);
+const OverworldMap = () => {
+  const { setMonsters } = useContext(GameContext);
 
   // Hero and image data
   const hero = new Person({
@@ -32,11 +31,11 @@ const OverworldMap = ({ config }) => {
     // Spawn monsters
     const newMonsters = spawnMonsters(numberOfMonsters, locations);
 
-    // Update the monsters state using setMonsters
+    // Update the monsters state using setMonsters from GameContext
     setMonsters(newMonsters);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [config, setMonsters]);
+  }, [setMonsters]);
 
   return (
     <div>
