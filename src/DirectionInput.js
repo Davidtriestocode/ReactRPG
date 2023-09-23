@@ -4,7 +4,7 @@ const DirectionInput = () => {
   const [heldDirections, setHeldDirections] = useState([]);
   
   const KeyMap = {
-    "ArrowUp": "up",
+    "ArrowUp": "up",  
     "KeyW": "up",
     "ArrowDown": "down",
     "KeyS": "down",

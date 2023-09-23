@@ -15,11 +15,38 @@ https://omni-x.io/
 https://app.vertexprotocol.com/
 https://app.r3vl.xyz/bridge
 https://app.slingshot.finance/portfolio
-
 https://mail.dmail.ai/
+
+
+BuildrMetrics
+@BuildrMetrics
+With BuildrMetrics, manage Uniswap v3 pools and track APR, APY, ROI, yields, and impermanent loss, all in one intuitive calculator for liquidity providers.
+buildrmetrics.com
 
 Starknet
 https://starkgate.starknet.io/
+@10KSwap
+
+@mySwapxyz
+
+@JediSwap
+@Starkex_org
+@avnu_fi
+
+NFTs
+flexing.gg (NFT marketplace)
+@UnframedCo
+ (NFT marketplace)
+
+- Make an Offer ($0.07 fee)
+@Starknet_id
+ (Naming service)
+
+- Mint the Identity ($0.11 fee)
+• 
+@Dmailofficial
+- Mint a domain ($0.07 fee)
+- Send emails ($0.07 fee)
 
 Linea
 
@@ -34,6 +61,7 @@ Nexon https://app.nexon.finance
 Spacefi https://app.spacefi.io
 syncswap.xyz
 Pinata.cloud
+mav.xyz
 
 Tools
 https://banterbubbles.com/

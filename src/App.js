@@ -36,12 +36,8 @@ const App = () => {
         <Route path="/character-creation" element={<CharacterCreation />} />
         <Route path="/character-sheet" element={<CharacterSheet />} />
         <Route path="/combat" element={<Combat />} />
-
         {/* Wrap the Inventory component with DndProvider */}
         <Route path="/inventory" element={<DndProvider backend={HTML5Backend}><Inventory /></DndProvider>} />
-        {/* Wrap the Equipment component with DndProvider */}
-        <Route path="/equipment" element={<DndProvider backend={HTML5Backend}><Equipment /></DndProvider>} />
-        <Route path="/overworld-map" element={<OverworldMap />} /> {/* Add this route for the GameMap */}
         <Route path="/overworld" element={<Overworld />} /> {/* Add this route for the GameMap */}
 
       </Routes>

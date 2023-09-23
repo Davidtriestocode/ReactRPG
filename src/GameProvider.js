@@ -1,33 +1,49 @@
 import React, { useState } from 'react';
-import GameContext, { useGameContext } from './GameContext';
+import GameContext from './GameContext';
 
 const GameProvider = ({ children }) => {
   const [monsters, setMonsters] = useState([]);
   const [maps, setMaps] = useState({
-    // Define your maps here
-    demoRoom: {
-      name: 'Demo Room',
-      lowerSrc: "/images/maps/DemoLower.png",
-      upperSrc: "/images/maps/DemoUpper.png",
-      // Add other map properties as needed
+    OverworldMap: {
+      name: 'Overworld Map',
+      // Other default map properties as needed
     },
-    // Add more maps as needed
+    // Add more maps here with their initial dimensions
+    AnotherMap: {
+      name: 'Another Map',
+      // Other default map properties as needed
+    },
   });
 
-  // Initialize the currentMap to a default map, e.g., 'demoRoom'
   const [currentMap, setCurrentMap] = useState('OverworldMap');
-
-  // You can define other shared state variables as needed
   const [config, setConfig] = useState(/* initialConfig */);
+  const [initialPlayerPosition, setInitialPlayerPosition] = useState({ x: 0, y: 0 });
+  const [currentPlayerPosition, setCurrentPlayerPosition] = useState(initialPlayerPosition);
+  const [currentMapDimensions, setCurrentMapDimensions] = useState({ width: 0, height: 0 });
 
-  // Function to change the current map
   const changeMap = (newMap) => {
     // You can add validation here to ensure newMap exists in maps
     setCurrentMap(newMap);
+
+    // Retrieve the dimensions for the new map from your maps object
+    setCurrentMapDimensions({ ...maps[newMap].dimensions });
   };
 
   return (
-    <GameContext.Provider value={{ monsters, setMonsters, maps, currentMap, changeMap, config, setConfig }}>
+    <GameContext.Provider
+      value={{
+        monsters,
+        setMonsters,
+        maps,
+        currentMap,
+        changeMap,
+        config,
+        setConfig,
+        initialPlayerPosition,
+        currentPlayerPosition,
+        currentMapDimensions,
+      }}
+    >
       {children}
     </GameContext.Provider>
   );

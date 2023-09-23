@@ -1,41 +1,51 @@
-import React, { useEffect, useContext, useState } from 'react';
+// OverworldMap.js
+import React, { useEffect, useContext } from 'react';
 import GameContext from './GameContext';
 import Person from './Person';
 import utils from './utils';
-import GameMap from './img/GameMap.jpg';
 import { spawnMonsters } from './Monsters';
 
-const mapWidth = 600;
-const mapHeight = 800;
 
 const OverworldMap = () => {
-  const { setMonsters } = useContext(GameContext);
+  const { setMonsters, setCurrentMapDimensions, setInitialPlayerPosition, changeMap } = useContext(GameContext);
 
-  // Hero and image data
+  const mapWidth = 600; // Define map width for this specific map
+  const mapHeight = 800; // Define map height for this specific map
+
+  // Set the current map dimensions
+  useEffect(() => {
+    setCurrentMapDimensions({ width: mapWidth, height: mapHeight });
+  }, [setCurrentMapDimensions]);
+
+  // Create a Hero with initial position
   const hero = new Person({
     isPlayerControlled: true,
     x: utils.withGrid(5),
     y: utils.withGrid(6),
   });
 
-  const imageSrc = "/images/maps/GameMap.jpg";
+// Set the initial player position
+useEffect(() => {
+  setInitialPlayerPosition({ x: hero.x, y: hero.y });
+}, [setInitialPlayerPosition, hero]);
 
+  // Define the number of monsters and locations
   useEffect(() => {
-    // Define the number of monsters and locations
     const numberOfMonsters = 10;
     const locations = Array.from({ length: 10 }, () => ({
       x: Math.random() * mapWidth,
       y: Math.random() * mapHeight,
     }));
 
-    // Spawn monsters
+    // Spawn monsters and set them in the context
     const newMonsters = spawnMonsters(numberOfMonsters, locations);
-
-    // Update the monsters state using setMonsters from GameContext
     setMonsters(newMonsters);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setMonsters]);
+
+  // Set this map as the active map
+  useEffect(() => {
+    changeMap('OverworldMap');
+  }, [changeMap]);
 
   return (
     <div>
